@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from "react";
+import PlayRadio from "./components/PlayRadio/PlayRadio";
+import Station from "./components/Station/Station";
+import "./app.css";
+
+export const RadioContext = createContext("radio");
 
 function App() {
+  const [play, setPlay] = useState("Radio Foorti");
+  const handleClick = (e) => {
+    const channelName = e.target.innerText;
+    setPlay(channelName);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RadioContext.Provider value={{ play: play, handleClick: handleClick }}>
+      <div className="App">
+        <div className="main">
+          <Station />
+          <PlayRadio play={play} />
+        </div>
+      </div>
+    </RadioContext.Provider>
   );
 }
 

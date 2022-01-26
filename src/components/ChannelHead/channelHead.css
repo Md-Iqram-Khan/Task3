@@ -1,0 +1,13 @@
+.head {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 7px;
+  background-color: #384259;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headText {
+  /* padding: 10px; */
+  font-size: 28px;
+}

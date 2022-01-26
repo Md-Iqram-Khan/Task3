@@ -1,0 +1,6 @@
+.channel {
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
